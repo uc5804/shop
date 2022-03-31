@@ -1,0 +1,48 @@
+@import './reset.scss';
+
+$MAINCOLOR : #ff0000;
+
+.red {
+    color: $MAINCOLOR;
+}
+
+// div.container h4 {
+//     color : blue;
+// }
+// div.container p {
+//     color : green;
+// }
+
+// div.container {
+//     h4{
+//         color : blue;
+//     }
+//     p {
+//         color : black;
+//     }
+// }
+@mixin 함수(){
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
+
+.my-alert {
+    @include 함수()
+}
+
+.my-alert2 {
+    @extend .my-alert;  //.my-alert 속성 복붙
+    background: #ffe591;
+} 
+
+
+.my-alert p {
+    margin-bottom: 0;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
