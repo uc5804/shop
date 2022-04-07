@@ -5,6 +5,7 @@ import './App.css';
 import Data from './data.js';
 import {Link, Route, Switch} from 'react-router-dom';
 import Detail from './Detail.js';
+import axios from 'axios';
 
 function App() {
   let [shoes, shoes변경] = useState(Data);
@@ -16,8 +17,8 @@ function App() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link><Link to="/">Home</Link></Nav.Link>
-        <Nav.Link><Link to="/detail">Detail</Link></Nav.Link>
+        <Nav.Link as={Link} to="/">Home</Nav.Link>
+        <Nav.Link as={Link} to="/detail">Detail</Nav.Link>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -42,13 +43,14 @@ function App() {
 
   <div className="container">
     <div className="row align-items-center">
-    {
-      shoes.map((a, i)=>{
-        return <Card shoes={shoes[i]} i={i} key={i}/>
-      })
-    }
+      {
+        shoes.map((a, i)=>{
+          return <Card shoes={shoes[i]} i={i} key={i}/>
+        })
+      }
+      </div>
+      <button className="btn btn-primary">더보기</button>
     </div>
-  </div>
   </Route>
 
   <Route path="/detail/:id" > {/* /detail/:id  : 아무문자나 받겠다는 URL 작명법 */}
